@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" lang="pt-BR">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teste</title>
+  <style>
+    body{
+      text-align:center;
+      font-size:60px;
+    }
+    #button-container{
+      display: grid;
+      grid-template-rows:1fr 1fr 1fr;
+      grid-template-columns:1fr 1fr 1fr 1fr;
+      text-align: center;
+    }
+    button{
+      padding-bottom: 40px;
+      font-size: 70px;
+    }
+    #display {
+      font-size: 26px;
+      padding-bottom: 20px;
+    }
+    #igual{
+      grid-column: 1/5;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <input id="display"></input>
+    <div id="button-container">
+      <button id="clear" onclick="cl()">C</button>
+      <button onclick="insertDisplay('+')">+</button>
+      <button onclick="insertDisplay('-')">-</button>
+      <button onclick="insertDisplay('*')">*</button>
+      <button onclick="insertDisplay('/')">/</button>
+      <button onclick="insertDisplay('1')">1</button>
+      <button onclick="insertDisplay('2')">2</button>
+      <button onclick="insertDisplay('3')">3</button>
+      <button onclick="insertDisplay('4')">4</button>
+      <button onclick="insertDisplay('5')">5</button>
+      <button onclick="insertDisplay('6')">6</button>
+      <button onclick="insertDisplay('7')">7</button>
+      <button onclick="insertDisplay('8')">8</button>
+      <button onclick="insertDisplay('9')">9</button>
+      <button onclick="insertDisplay('0')">0</button>
+      <button onclick="insertDisplay('.')">.</button>   
+      <button id="igual" onclick="result()">=</button>
+    </div>
+  </div>
+  <script>
+    const display = document.getElementById("display")
+    function insertDisplay(index) {
+      display.value += index
+    }
+    function cl() {
+      display.value = ""
+    }
+    function result() {
+      try{
+        let res = eval(display.value)
+        display.value = res
+      } catch {
+        display.value = "error"
+      }
+    }
+  </script>
+</body>
+
+</html>
